@@ -1,0 +1,28 @@
+/*6. Să se scrie un program care determină cel mai mare divizor comun a doi întregi. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void ana(int,int);
+int main()
+{
+	int a, b,t;
+	printf("Introduceti valorile:\n");
+	scanf("%i%i", &a,&b);
+	if (a <0 || b < 0) main();
+	printf("Cel mai mare divizor comun a lui %i si %i este:", a, b);
+	if (a == 0) printf("%i", b);
+	else if (b == 0) printf("%i", a);
+	else ana(a, b);
+	return 0;
+	/*2019*/
+
+}
+void ana(int a,int b)
+{
+	while (a != b)
+	{
+		if (a > b) a = a - b;
+		else b = b -a;
+	}
+	printf("%i", a);
+}

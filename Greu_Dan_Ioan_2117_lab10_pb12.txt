@@ -1,0 +1,84 @@
+/*12. Scrieţi un program în care se citesc de la tastatură elementele de tip întreg ale unei matrici pătratice, utilizând o funcţie. 
+Scrieţi o funcţie care interschimbă două linii ale matricii. 
+Aﬁşaţi cu o funcţie matricea iniţială şi cea obţinută.
+Dimensiunea matricii şi numerele ce identiﬁcă liniile care vor ﬁ interschimbate se citesc de la tastatură, în funcţia main. (fără variabile globale). */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void vector(int*,int*,int);
+void tbl(int*, int,int,int);
+void afs(int*, int*, int);
+int main()
+{
+	int v[100][100],a1[100][100], * p,*z;
+	p = v[0];
+	z= a1[0];
+	int n,c,k;
+	printf("introduceti dimensiunea matricei patratice:");
+	scanf("%i", &n);
+	printf("\nintroduceti elementele:");
+	vector(p,z,n);
+	printf("\nintroduceti valorile pentru linile care trebuie schimbate(numerotarea se face de la 0 la %i\n",n-1);
+	scanf("%i%i", &c, &k);
+	tbl(p,n,c,k);
+	afs(p, z, n);
+	return 0;
+	/*2019*/
+
+}
+void vector(int*p,int* z,int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+		{
+			scanf("%i", (p + i*n+j));
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+		{
+			*(z+i*n+j)=*(p + i * n + j);
+		}
+	}
+}
+void tbl(int* p,int n,int c,int k)
+{
+	int nr = 0;
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+		{
+			if (i == c)
+			{
+				nr = *(p + i * n + j);
+				*(p + i * n + j) = *(p + k * n + j);
+				*(p + k * n + j) = nr;
+			}
+		}
+			
+}
+void afs(int* p, int* z, int n)
+{
+	printf("\nMatricea initiala:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+		{
+			printf("%i", *(z+ i * n + j));
+		}
+	}
+	printf("\nMatricea obtinuta:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+		{
+			printf("%i", *(p + i * n + j));
+		}
+	}
+}

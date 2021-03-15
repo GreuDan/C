@@ -1,0 +1,29 @@
+/*14. Ordonaţi crescător un tablou unidimensional de numere întregi folosind funcţia de bibliotecă qsort() din stdlib.h.
+Folosiţi acelaşi algoritm pentru numere de tip ﬂoat şi ordonaţi descrescător*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int compare(const void*, const void*);
+int main()
+{
+	float v[100], * p, n;
+	p = v;
+	printf("introduceti dimensiunea  vectorului:");
+	scanf("%f", &n);
+	printf("\nintroduceti elementele:");
+	for (int i = 0; i < n; i++)
+		scanf("%f", (p + i));
+	qsort(p,n,sizeof(float),compare);
+	printf("\nVectorul obtinut este:\n");
+	for (int i = n - 1; i >= 0; i--)
+		printf("%0.2f ", *(p + i));
+	return 0;
+	/*2019*/
+
+}
+int compare(const void* a, const void* b)
+{
+	return (*(float*)a - *(float*)b);
+}

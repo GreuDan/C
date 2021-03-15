@@ -1,0 +1,27 @@
+/*14. Scrieţi un program care citeşte n numere întregi de la tastatură şi le aﬁşează pe cele divizibile cu 3. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void vector(int v[], int n);
+int main()
+{
+	int n;
+	int v[100];
+	printf("Introduceti numarul de elemente:\n");
+	scanf("%i", &n);
+	if (n <= 0) main();
+	vector(v, n);
+	return 0;
+	/*2019*/
+
+}
+void vector(int v[], int n)
+{
+	int i;
+	for (i = 0; i < n; i++) {
+		scanf("%i", &v[i]);
+	}
+	printf("\nNumerele divizibile cu 3 din sir sunt: ");
+	for (i = 0; i < n; i++)
+		if (v[i] % 3 == 0) printf("%i ", v[i]);
+}

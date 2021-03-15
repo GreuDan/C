@@ -1,0 +1,31 @@
+/*3. Să se scrie un program care calculeaza a la puterea n, unde a  și n sunt citite de la consolă. */
+/*Greu Dan Ioan*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+float putere(float,int);
+int main()
+{  
+	float a;
+	int n;
+	printf("introduceti valoarea si puterea:");
+	scanf("%f%i", &a, &n);
+	if (n == 0) printf("\nValoarea %0.2f la puterea %i este %i", a, n, 1);
+	else if (n < 0)
+	{
+		a = 1.0 / a;
+		n = -n;
+		printf("\nValoarea %0.2f la puterea %i este %f", a, n,(float) putere(a, n));
+	}
+	else printf("\nValoarea %0.2f la puterea %i este %0.2f",a,n,putere(a, n));
+}
+float putere(float a,int n)
+{
+	int i = 0;
+	float c=1;
+	for (i = 1; i <= n; i++)
+	{
+
+		c = c * a;
+	}
+	return c;
+}

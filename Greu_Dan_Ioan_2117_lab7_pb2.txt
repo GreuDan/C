@@ -1,0 +1,16 @@
+/*2. Să se scrie un program care verifică dacă un număr citit de la tastatură este pătrat perfect*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	float a,b;
+	printf("Introduceti valoarea:\n");
+	scanf("%f", &a);
+	b = sqrt(a);
+	if (a/b==b) printf("valoarea introdusa %f este patrat perfect", a);
+	return 0;
+	/*2019*/
+
+}

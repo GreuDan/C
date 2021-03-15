@@ -1,0 +1,46 @@
+/*5. Deﬁniţi un tablou de pointeri către şiruri de caractere. 
+Fiecare locaţie a tabloului conţine adrese către unul din urmatoarele şiruri de caractere: 
+- "valoare prea mică" - "valoare prea mare" - "valoare corectă" 
+Aplicaţia generează un număr aleator între 1 şi 100 şi apoi citeşte în mod repetat intrarea de la tastatură până când utilizatorul introduce valoarea corectă. 
+Folosiţi mesajele deﬁnite pentru a informa utilizatorul, la ﬁecare pas, despre relaţia existentă între numărul generat şi ultima valoare citită.*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void numar(int* p);
+int  main()
+{
+	int nr,*p,x;
+	p = &nr;
+	numar(p);
+	printf("introduceti un nr de la 1 pana la 100\n");
+	do
+	{
+		scanf("%i", &x);
+		if (x < *p) {
+			printf("%i-valoare prea mica\n", x);
+			printf("Alt numar:\n");
+		}
+		else if (x > * p)
+		{
+			printf("%i-valoare prea mare\n", x);
+			printf("Alt numar:\n");
+		}
+	} while (x != *p);
+    printf("%i-valoare corecta", *p);
+	return 0;
+	/*2019*/
+
+}
+void numar(int* p)
+{
+	int nr = 0;
+	srand((int)time(0));
+	for (int i = 0; i < 50; i++)
+	{
+		*p = rand() % 101 + 0;
+		nr++;
+		if (nr == 1) break;
+	}
+}

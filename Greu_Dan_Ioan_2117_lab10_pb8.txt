@@ -1,0 +1,24 @@
+/*8. Să se scrie un program care inversează şirul de caractere citit din linia de comandă*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main(int arcv,char*argv[])
+{
+	char v[1000000]="";
+	int i,n;
+	printf("Acesta este sirul obtinut:\n");
+	strcpy(v, argv[1]);
+	n = strlen(v) - 1;
+	for (int j = 0; j < n/ 2; j++)
+	{
+		i = v[j];
+		v[j] = v[n - j];
+		v[n - j] = i;
+	}
+	printf("%s", v);
+	return 0;
+	/*2019*/
+
+}

@@ -1,0 +1,29 @@
+/*15. Să se scrie un program care citeşte de la tastatură un caracter, pe care îl aﬁşează pe n rânduri, câte n caractere pe un rând.  */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void vector(char a, int n);
+int main()
+{
+	int n;
+	char a;
+	printf("Caracterul dorit  si introduceti numarul de randuri:\n");
+	scanf("%c %i", &a,&n);
+	if (n ==0) main();
+	vector(a, n);
+	return 0;
+	/*2019*/
+
+}
+void vector(char a, int n)
+{
+	int i,j=0;
+	for (i = 0; i < n; i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%c", a);
+		}
+		printf("\n");
+	}
+}

@@ -1,0 +1,22 @@
+/*6. Se citesc de la tastatură numele a 2 studenți și notele ﬁecăruia la programare (laborator, teoretic, practic). Să se implementeze o funcție ce calculează media notelor lor. Să se aﬁșeze mai apoi pe linii separate numele ﬁecărui student într-un câmp de aﬁșare cu dimensiunea 20, aliniat la dreapta și media lor, cu o precizie de 2 zecimale. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char s1[20], s2[20];
+	float a, b, c,x,d;
+	gets_s(s1);
+	gets_s(s2);
+	printf("Notele lui %s sunt:", s1);
+	scanf("%d%d%d", &a, &b,&c);
+	x = (a + b + c) / 3.0;
+	d = x;
+	printf("Notele lui %s sunt :", s2);
+	scanf("%d%d%d", &a, &b, &c);
+	x = (a + b + c) / 3.0;
+	printf("Nota la programare a lui  &s este %0.2f", s1, d);
+	printf("Nota la programare a lui  &20s este %0.2f", s2, x);
+	return 0;
+}

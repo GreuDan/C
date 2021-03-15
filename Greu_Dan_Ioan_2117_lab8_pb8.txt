@@ -1,0 +1,42 @@
+/*8. Scrieţi un program care pria de la tastatură “n” valori reale într-un tablou unidimensional, calculează cu o funcţie valoarea medie a valorilor introduse si aﬁşează cu o altă funcţie doar valorile din tablou mai mari decît valoarea medie calculată. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void media(float v[],int n);
+void afisare(float a[], float m, int n1);
+int  main()
+{
+	float v[100];
+	int n;
+	printf("introdu numarul de valori:\n");
+	scanf("%i", &n);
+	for (int i = 0; i < n; i++)
+		scanf("%f", &v[i]);
+	media(v,n);
+	return  0;
+	/*2019*/
+
+}
+void media(float v[],int n)
+{
+	float a[100], m = 0;
+	int n1 = n;
+	for (int i = 0; i < n; i++)
+	{
+		a[i] = v[i];
+		m += v[i];
+	}
+	m = (float)m / n;
+	printf("\nvaloarea medie este:");
+	printf("%0.2f", m);
+	afisare(a, m, n1);
+
+
+}
+void afisare(float a[], float m, int n1)
+{
+	printf("\nelementele mai mari decat valoarea medie sunt:");
+	for (int i = 0; i < n1; i++)
+		if (a[i] > m) printf(" %0.2f", a[i]);
+}

@@ -1,0 +1,29 @@
+/*11. Să se scrie un program care citeşte de la tastatură n numere întregi. Aﬁşaţi toate numerele impare din şir. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void vector(int n);
+int main()
+{
+	int n;
+	printf("Introduceti numarul:\n");
+	scanf("%i", &n);
+	vector(n);
+	return 0;
+	/*2019*/
+
+}
+void vector(int n)
+{
+	int i, nr = 0;
+	float a, s = 0;
+	while(s<=n)
+	{
+		scanf("%f", &a);
+		s += a;
+		nr++;
+    }
+	printf("S-au introdus %i numere si suma lor este %0.2f", nr, s);
+
+
+}

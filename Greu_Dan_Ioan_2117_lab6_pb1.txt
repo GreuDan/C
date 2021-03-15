@@ -1,0 +1,16 @@
+/*1. Să se scrie un program care afişează valoarea polinomului de gradul 3 pentru o anumită valoare a variabilei reale x. Coeficienții polinomului și x se citesc de la tastatură.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	float a,b,c,d,x;
+	printf("introduceti valorile coeficientilor:\n");
+	scanf("%f%f%f%f", &a, &b, &c, &d);
+	printf("introduceti valoarea lui necunoscutei x:\n");
+	scanf("%f", &x);
+	printf("valoarea polinomului de grad 3 este :%0.0f",x*x*x*a+x*x*b+x*c+d );/*sintaxa x*x*x*a+x*x*b+x*c+d  executa formula polinomului de grad 3*/
+	return 0;
+	/* versiunea visual studio 2019*/
+}

@@ -1,0 +1,22 @@
+/*1. Se citesc trei numere de la tastatură (a, b şi c). Să se determine aria dreptunghiului ale cărui
+laturi sunt a şi b şi verificaţi dacă diagonala dreptunghiului este egală cu c.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	float a, b, c,a1;
+	printf("introduceti valorile:\n");
+	scanf("%f%f%f", &a,&b,&c);
+	a1 = a * a + b * b;
+	if (a < 0 || b < 0 || c < 0)
+	{
+		printf("valorile sunt introduse gresit");
+		main();
+	}
+	if (sqrt(a1) == c)printf("Aria dreptunghiului este %0.2f si diagonala dreptunghiului este egala cu %0.2f", a * b, c);
+	else printf("Aria dreptunghiului este %0.2f si diagonala dreptunghiului nu este egala cu %0.2f", a * b, c);
+	return 0;
+	/* versiunea visual studio 2019*/
+}

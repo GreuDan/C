@@ -1,0 +1,96 @@
+/*6. Folosiţi alocarea dinamică pentru o matrice m x n cu valori întregi (m, n <7).
+Initializaţi elementele matricii.
+Dacă matricea este pătratică, folosiţi metoda lui Sarrus pentru a obţine valoarea determinantului.
+Aﬁşaţi rezultatul şi eliberaţi memoria.
+*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void citire(int*, int, int);
+void sarus(int*, int*, int, int, int* c);
+int main()
+{
+	int* v, * p, m, n, * c,r=0;
+	c = &r;
+	printf("Introduceti dimensiunile matricei(linii/coloane):\n");
+	scanf("%i%i", &m, &n);
+	v = (int*)malloc(m * n * sizeof(int));
+	citire(v, m, n);
+	if (m == n && m == 2) printf("%i\n", *(v + 0 * m + 0) * (*(v + 1 * m + 1)) - *(v + 0 * m + 1) * (*(v + 1 * m + 0)));
+	if (m == n && m == 3)
+	{
+		p = (int*)malloc((m + 2) * n * sizeof(int));
+		sarus(v, p, m, n, c);
+		printf("\nDeterminantul matricei este:%i\n", *c);
+
+	}
+	if (m == n && m > 3) printf("Regula lui Sarus se aplica doar pentru matrcea de 3x3\n");
+	printf("Matricea este:\n"); 
+	for (int i = 0; i < m; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			printf("%i ", *(v + i * m + j));
+	}
+	free(v);
+	return 0;
+	/*2019*/
+}
+void citire(int* v, int m, int n)
+{
+	for (int i = 0; i < m; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			scanf("%i", (v + i * m + j));
+	}
+}
+void sarus(int* v, int* p, int m, int n, int* c)
+{
+	int s[6];
+	for (int i = 0; i < 6; i++)
+		s[i]=1;
+	for (int i = 0; i < m + 2; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++) {
+			*(p + i * m + j) = *(v + i * m + j);
+			if (i >= m)
+			{
+				*(p + i * n + j) = *(v + (i - m) * m + j);
+			}
+		}
+	}
+	for (int i = 0; i < m + 2; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			printf("%i ", *(p + i * m + j));
+	}
+	for (int i = 0; i < m; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++) {
+			if (i == j) s[0] *= *(p + i * m + j);
+			if (i + j == m-1) s[3] *= *(p + i * m + j);
+		}
+
+	}
+	for (int i = 2; i < m + 2; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++) {
+			if (i -j==n-1) s[1] *= *(p + i * m + j);
+			if (i-j==1 || (i==4 && j==0) ) s[2] *= *(p + i * m + j);
+			if (i + j == 4) s[4] *= *(p + i * m + j);
+			if (i + j == n || (i==4 && j==2)) s[5] *= *(p + i * m + j);
+		}
+
+	}
+	for (int i = 0; i < 6; i++)
+		printf("%i->%i ", s[i],i);
+	printf("\n");
+	*c = s[0] + s[1] + s[2] - s[3] - s[4] - s[5];
+}

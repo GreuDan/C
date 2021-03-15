@@ -1,0 +1,78 @@
+/*1. Să se scrie un program C, care folosind o structură numita student, avand campurile {nume, prenume, ţara de origine, grupa, anul naşterii},
+să determine numărul de studenţi străini din grupă (grupa de MAX studenti) şi să aﬁşeze toate datele acestora.
+Datele pentru studenţii din grupa se citesc de la intrarea standard, până la întâlnirea numelui AAA.*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#define MAX 34
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct studenti {
+	char nume[100];
+	char prenume[100];
+	char tara_de_origine[100];
+	int grupa;
+	int anul_nasterii;
+
+}a1[MAX];
+int  main()
+{
+	int i = -1, n = 0, ok = 1, v[100], nr = 0;
+	char s[100], * p;
+	do {
+		i++;
+		printf("Nume student:\n");
+		scanf("%s", s);
+		strcpy((a1 + i)->nume, s);
+		for (int j = 0; j < 3; j++)
+			if (s[j] == 'A') n++;
+		if (n == 3) {
+			i--;
+			printf("%i\n", i);
+			break;
+		}
+		printf("Prenume studentt:\n");
+		scanf("%s", &(a1 + i)->prenume);
+		printf("Anul nasterii:\n");
+		scanf("%i", &(a1 + i)->anul_nasterii);
+		printf("Tara de origine:\n");
+		scanf("%s", &(a1 + i)->tara_de_origine);
+		printf("Grupa:\n");
+		scanf("%i", &(a1 + i)->grupa);
+	} while (n == 0);
+	for (int j = 0; j <= i; j++)
+	{
+		if ((a1 + j)->tara_de_origine[0] == 'r' || (a1 + j)->tara_de_origine[0] == 'R')
+		{
+			if ((a1 + j)->tara_de_origine[1] != 'o' && (a1 + j)->tara_de_origine[1] != 'O')
+			{
+				v[nr] = j;
+				nr++;
+			}
+		}
+		else {
+			if ((a1 + j)->tara_de_origine[1] != 'r' || (a1 + j)->tara_de_origine[1] != 'R')
+			{
+				v[nr] = j;
+				nr++;
+			}
+		}
+	}
+	printf("Studentii straini sunt:\n");
+	for (int i = 0; i < nr; i++)
+	{
+		printf("Nume student:\n");
+		printf("%s\n", (a1 + v[i])->nume);
+		printf("Prenume studentt:\n");
+		printf("%s\n", (a1 + v[i])->prenume);
+		printf("Tara de origine:\n");
+		printf("%s\n", (a1 + v[i])->tara_de_origine);
+		printf("Anul nasterii:\n");
+		printf("%i\n", (a1 + v[i])->anul_nasterii);
+		printf("Grupa:\n");
+		printf("%i\n", (a1 + v[i])->grupa);
+	}
+	return  0;
+	/*2019*/
+
+}

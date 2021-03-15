@@ -1,0 +1,82 @@
+/*7. Să se scrie o aplicaţie C care alocă dinamic memorie necesară pentru stocarea a 10.000 de numere întregi.
+Programul iniţializează numerele cu valori aleatoare între 1 şi 100 (folosiţi funcţia rand()).
+Scrieţi o funcţie care aﬁşează cele mai frecvente 10 numere şi numărul lor de apariţii în tabloul iniţial.
+*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<time.h>
+void afisare(int*, int*, int*);
+int main()
+{
+	int* v, * max, * ok, m = 0;
+	int p[101] = {0};
+	v = (int*)malloc(10000 * sizeof(int));
+	max = (int*)malloc(10 * sizeof(int));
+	ok = (int*)malloc(10 * sizeof(int));
+	srand(time(0));
+	for (int i = 0; i < 10000; i++)
+	{
+		*(v + i) = rand() % 100 + 1;
+		p[*(v + i)]++;
+	}
+	int k = 0;
+	for (int j = 0; j < 10; j++)
+	{
+		for (int i = 0; i < 101; i++)
+		{
+			if (v[i] != 0)
+			{
+				if (j == 0)
+				{
+					if (p[i] > m)
+					{
+						m = p[i];
+						*(ok + k) = i;
+					}
+					if (p[i] == m && i != *(ok + k))
+						*(ok + k) = i;
+				}
+				if (j != 0)
+				{
+					if (p[i] > m&& p[i] < *(max + j - 1))
+					{
+						m = p[i];
+						*(ok + k) = i;
+					}
+					if (p[i] == m && p[i] < *(max + j - 1))
+						if (i != *(ok + k)) *(ok + k) = i;
+				}
+
+			}
+		}
+		*(max + j) = m;
+		m = 0;
+		k++;
+	}
+	free(v);
+	v = (int*)malloc(20 * sizeof(int));
+	afisare(v, max, ok);
+	return 0;
+	/*2019*/
+}
+void afisare(int* v, int* max, int* ok)
+{
+	int j = 0;
+	for (int i = 0; i < 20; i = i ++)
+	{
+
+		*(v + i) = *(ok + j);
+		i++;
+		*(v + i) = *(max + j);
+		j++;
+		
+	}
+	for (int i = 0; i < 20; i = i +2 )
+	{
+		printf("\n%i apare de %i ori\n", *(v + i), *(v + i + 1));
+
+	}
+}

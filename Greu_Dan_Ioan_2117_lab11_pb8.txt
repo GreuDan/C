@@ -1,0 +1,41 @@
+/*8. Să se scrie o aplicaţie C în care se alocă dinamic memorie pentru n numere întregi, numere ce vor ﬁ citite de la tastatură.
+Să se scrie funcţia care extrage radicalul din ﬁecare număr şi stochează valorile obţinute într-un alt tablou alocat dinamic.
+Să se aﬁşeze numerele iniţiale şi valorile din tabloul format.
+Eliberaţi la sfârşit memoria alocată. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<cmath>
+void rad(int*, float*,int);
+int main()
+{
+	int n, * v;
+	float *t;
+	printf("introduceti numarul de elemente:\n");
+	scanf("%i", &n);
+	v = (int*)malloc(n * sizeof(int));
+	t = (float*)malloc(n * sizeof(float));
+	rad(v, t,n);
+	printf("Tabloul initial:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("%i ",*(v + i));
+	}
+	printf("\nTabloul format:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("%0.2f ", *(t + i));
+	}
+	/*2019*/
+}
+void rad(int* v, float* t,int n)
+{
+	printf("introduceti  elementele:\n");
+	for (int i = 0; i < n; i++)	
+	{
+		scanf("%i", (v + i));
+		*(t + i) = sqrt(*(v + i));
+	}
+}

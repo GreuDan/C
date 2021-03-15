@@ -1,0 +1,53 @@
+/*10. Să se scrie o aplicaţie C, care alocă dinamic memorie pentru stocarea elementelor unei matrici de dimensiune nxn.
+Să se scrie o funcţie care calculează suma numerelor pozitive pare de sub diagonala principală şi o funcţie pentru aﬁşarea  matricei.
+Să se aﬁşeze matricea şi suma cerută.
+Eliberaţi memoria alocată dinamic.  */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+void suma(int*, int*, int);
+void afisare(int*, int);
+int main()
+{
+	int* p, * s;
+	int n,m=0;
+	s = &m;
+	printf("introduceti dimensiunea matricei patratice:\n");
+	scanf("%i", &n);
+	p = (int*)malloc(n * n * sizeof(int));
+	printf("introduceti elementele:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			scanf("%i", (p + i * n + j));
+	}
+	suma(p, s, n);
+	printf("Suma elementelor este: %i", *s);
+	printf("\nMatricea este :");
+	afisare(p, n);
+	free(p);
+	/*2019*/
+}
+void suma(int* p, int* s, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i > j && *(p + i * n + j) > 0)
+				if (*(p + i * n + j) % 2 == 0) *s += *(p + i * n + j);
+		}
+	}
+}
+void afisare(int* p, int n)
+{
+
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			printf("%i ", *(p + i * n + j));
+	}
+}

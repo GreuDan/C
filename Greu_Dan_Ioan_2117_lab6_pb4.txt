@@ -1,0 +1,99 @@
+/*3. Să se scrie un program care afişează valorile biţilor unei variabile de tip unsigned char
+aplicând succesiv operatorul de deplasare dreapta şi operatorul %.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void binar(int,int v[]);
+void getsets(int, int, int);
+int main()
+{
+	unsigned a,a1;
+	int v[32],n,p;
+	printf("introduceti valoarea:\n");
+	scanf("%u%i", &a,&n);
+	a1 = a;
+	p = sizeof(a) * 8-1;
+	printf("Numarul in format zecimal este:%i\n", a);
+	printf("Numarul %i sub format  binar este:", a);
+	binar(a,v);
+	getsets(a1, p, n);
+	return 0;
+	/* versiunea visual studio 2019*/
+}
+void binar(int a, int v[])
+{
+	int i = 0, nr = 0, b,f[31];
+	char d[7];
+	strcpy(d, "ABCDEF");
+	b = a;
+	for (i = 0; i <= 31; i++)
+	{
+		v[i] = a % 2;
+		a = a / 2;
+	}
+	for (i = 31; i >= 0; i--) printf("%i", v[i]);
+	nr = b;
+	printf("\nNumarul %i sub format octal este:", b);
+	for (i = 0; i < 16; i++)
+	{
+		f[i] = b % 8;
+		b = b / 8;
+	}
+	for (i = 15; i >= 0; i--) printf("%i", f[i]);
+	printf("\nNumarul %i sub format hexal este:",nr);
+	for (i = 16; i <= 23; i++)
+	{
+		f[i] = nr % 16;
+		nr = nr / 16;
+	}
+	for (i = 23; i >= 16; i--)
+	{
+		b = f[i] % 10;;
+		if (f[i] >= 10 && f[i] < 16) printf("%c", d[b]);
+		else printf("%i", f[i]);
+
+	}
+}
+void getsets(int a1, int p, int n)
+{
+	int i, v[32], s = 0, nr=1,b ;
+	for (i = 0; i <= 31; i++)
+	{
+
+		v[i] = a1 % 2;
+		a1 = a1 / 2;
+	}
+	int r = 0;
+	printf("\nNoul numarul sub format binar este:");
+	for (i =p-n+1; i <= p; i++) /*aici vom afisa si calcula suma de biti de la stanga la dreapta */
+	{
+			printf("%i", v[p - r]);
+			s += nr * v[i];
+			nr *= 2;
+			r++;
+	}
+	b = s;
+	for(i=0;i<16;i++)
+	{
+		v[i] = s % 8;
+		s = s / 8;
+	}
+	printf("\nNoul numar sub format octal este:");
+	for (i = 15; i >= 0; i--)printf("%i", v[i]);
+	char d[7];
+	strcpy(d, "ABCDEF");
+	for(i=16;i<=23;i++)
+	{	v[i] = b % 16;
+		b = b / 16;
+	}
+	printf("\nNoul numarul sub format hexa este:");
+	for (i = 23; i >= 16; i--)
+	{
+		b = v[i] % 10;;
+		if (v[i] >= 10 && v[i] < 16) printf("%c", d[b]);
+		else printf("%i", v[i]);
+
+	}
+
+}

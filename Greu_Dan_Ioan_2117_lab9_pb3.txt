@@ -1,0 +1,34 @@
+/*3. Să se scrie un program care citeşte elementele a două tablouri unidimensionale de numere întregi şi aﬁşează produsul scalar al acestora. Se va folosi o functie care preia elementele de la tastatură şi o altă funcţie, care calculează produsul scalar. Ambele vor utiliza pointeri. Citirea numărului de elemente ale tabloului şi aﬁşarea rezultatului se va face în funcţia main(). */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void vectori(int,int* p,int* k);
+void produs(int* ,int*,int &n1,int n);
+int  main()
+{
+	int  a[100],v[100],*p,*k;
+	int n,m,n1=0,m1=0;
+	printf("introduceti lungimea tablourilor:\n");
+	scanf("%i", &n);
+	p = v;
+	k = a;
+	vectori(n,p,k);
+	printf("%i%i", *k,*p);
+	produs(p, k,n1,n);
+	printf("Produsul scalar este %i", n1);
+	return 0;
+	/*2019*/
+
+}
+void vectori(int n,int* p,int* k)
+{
+	for (int i = 0; i < n; i++)
+		scanf("%i", (p+i));
+	for (int j = 0; j < n; j++)
+		scanf("%i", (k+j));
+}
+void produs(int* p, int* k,int &n1,int n)
+{
+	for (int i = 0; i < n; i++)
+		n1 += *(p + i) * (*(k + i));
+}

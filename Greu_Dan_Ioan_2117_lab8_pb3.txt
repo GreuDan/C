@@ -1,0 +1,40 @@
+/*3. Scrieţi o aplicatie care citeşte de la tastatură un şir de 10 valori intregi. Deﬁniţi o funcţie care primeste şirul ca parametru şi apoi îl aﬁşeaza ordonat crescător */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void ordoneaza(float v[]);
+int  main()
+{
+    float v[100];
+	printf("introduceti valorile:\n");
+	for (int i = 0; i < 10; i++)
+	{
+		scanf("%f", &v[i]);
+	}
+	printf("\n sirul ordonat de valori este:");
+	ordoneaza(v);
+	return  0;
+	/*2019*/
+
+}
+void ordoneaza(float v[])
+{
+	int a;
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10-i-1; j++)
+		{
+			if (v[j] > v[j + 1])
+			{
+				a = v[j];
+				v[j] = v[j + 1];
+				v[j + 1] = a;
+			}
+
+		}
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%0.2f ", v[i]);
+	}
+}

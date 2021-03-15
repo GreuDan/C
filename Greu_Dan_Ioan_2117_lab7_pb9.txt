@@ -1,0 +1,37 @@
+/*9. Calculaţi produsul a două numere întregi folosind numărul corespunzător de adunări*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void verificare(int, int);
+void ana(int,int);
+int main()
+{
+	int a,b;
+	printf("Introduceti valorile:\n");
+	scanf("%i%i", &a,&b);
+	verificare(a, b);
+	return 0;
+	/*2019*/
+
+}
+void verificare(int a, int b)
+{
+	if (a == 0 || b==0) printf("Produsul lui %i si %i este 0", a, b);
+	if (a != 0 && b != 0) {
+		printf("Produsul lui %i si %i este:", a, b);
+		ana(a, b);
+	}
+}
+void ana(int a,int b)
+{
+	int c;
+	c = a * b;
+	int d = a;
+	if (a < 0 && b < 0) d = -d;
+	while (a != c)
+	{
+		printf("\n%i+%i",a,d);
+		a +=d;
+	}
+	printf("\n%i", a);
+}

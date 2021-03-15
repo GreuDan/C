@@ -1,0 +1,47 @@
+/*5. Să se scrie un program în care se citesc de la tastatură numere reale, ce vor ﬁ stocate într-un tablou unidimensional.
+Să se scrie o funcţie care copiază într-un alt tablou toate valorile din primul tablou, care sunt mai mari decât valoarea medie a numerelor preluate. 
+Se vor folosi pointeri şi se vor aﬁşa în main() valorile din cele două tablouri. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void copiaza(float* p,float *k,float m,int n,int &nr);
+int  main()
+{
+	int  nr = 0, n;
+	float v[100], a[100], * p, * k,m=0,s=0;
+	p = v;
+	k = a;
+	printf("introduceti numarul de numere reale\n");
+	scanf("%i", &n);
+	for (int i = 0; i < n; i++)
+	{
+		nr++;
+		scanf("%f", p+i);
+		s += *(p+i);
+	}
+	printf("Acesta este tabloul original unidimensional creat prin pointerul p:");
+	m = (float)s / nr;
+	for (int i = 0; i < nr; i++)
+		printf("%0.2f ", *(p+i));
+	nr = 0;
+	copiaza(p, k, m, n, nr);
+	printf("\nVectorul copiat prin pointerul k, care contine nr mai mari decat media din tabloul original este:");
+	for (int i = 0; i < nr; i++)
+		printf("%0.2f ", *(k + i));
+	return 0;
+	/*2019*/
+
+}
+void copiaza(float* p, float* k, float m, int n, int& nr)
+{
+
+	for (int i = 0; i < n; i++)
+	{
+		if (*(p + i) > m)
+		{
+			*(k + nr) = *(p + i);
+			nr++;
+		}
+
+	}
+}

@@ -1,0 +1,46 @@
+/*11. Scrieţi un program în care se citesc de la tastatură elementele de tip întreg ale unei matrici pătratice, utilizând o funcţie.
+Scrieţi o funcţie care determină numărul de elemente negative de deasupra diagonalei secundare. 
+Aﬁsaţi rezultatul în main() (fără variabile globale).
+Ex: A = 1 -2 -3      
+        2 3  0      
+        4 5  6 
+Out: 2 */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void vector(int*,int);
+int tbl(int*, int);
+int main()
+{
+	int v[100][100], * p;
+	p = v[0];
+	int n;
+	printf("introduceti dimensiunea matricei patratice:");
+	scanf("%i", &n);
+	printf("\nintroduceti elementele:");
+	vector(p,n);
+	printf("numarul de elemente negative de deasupra diagonalei principale este:%i",tbl(p,n));
+	return 0;
+	/*2019*/
+
+}
+void vector(int*p,int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+		{
+			scanf("%i", (p + i*n+j));
+		}
+	}
+}
+int tbl(int* p,int n)
+{
+	int nr = 0;
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			if (i + j <= n-1 && *(p + i * n + j) < 0) nr++;
+	return nr;
+}

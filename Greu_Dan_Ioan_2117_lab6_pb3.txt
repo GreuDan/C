@@ -1,0 +1,27 @@
+/*3. Să se scrie un program care afişează valorile biţilor unei variabile de tip unsigned char
+aplicând succesiv operatorul de deplasare dreapta şi operatorul %.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+void binar(int);
+int main()
+{
+	unsigned a;
+	printf("introduceti valoarea:\n");
+	scanf("%u", &a);
+	printf("Numarul %i sub format  binar este:", a);
+	binar(a);
+	return 0;
+	/* versiunea visual studio 2019*/
+}
+void binar(int a)
+{
+	int i = 0, v[32];
+	for (i = 0; i <= 31; i++)
+	{
+		v[i] = a % 2;
+		a = a / 2;
+	}
+	for (i = 31; i >= 0; i--) printf("%i", v[i]);
+}

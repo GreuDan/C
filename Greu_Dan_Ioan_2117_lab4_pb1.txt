@@ -1,0 +1,13 @@
+/* 1. Să se scrie un program pentru determinarea mediei aritmetice a trei numere neîntregi */
+/*GREU DAN IOAN*/
+#include<stdio.h>
+int main()
+{
+	float a, b, c;
+	float y;
+	scanf_s("%f %f %f", &a, &b, &c);
+	y = (a + b + c) / 3;
+	printf(" media aritmetica a numerelor %f, %f, %f este : %f",a,b,c,y);
+	return 0;
+	/* versiunea visual studio 2019*/
+}

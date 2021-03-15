@@ -1,0 +1,24 @@
+/*7. Să se scrie un program care determină toţi divizorii unui număr.  */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void ana(int);
+int main()
+{
+	int a;
+	printf("Introduceti valoarea:\n");
+	scanf("%i", &a);
+	if (a <=0) main();
+	printf("Divizorii lui %i sunt:", a);
+    ana(a);
+	return 0;
+	/*2019*/
+
+}
+void ana(int a)
+{
+	for (int i = 1; i <= a; i++)
+	{
+		if (a % i == 0) printf("\n %i", i);
+	}
+}

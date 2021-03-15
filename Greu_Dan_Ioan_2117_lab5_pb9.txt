@@ -1,0 +1,16 @@
+/*9. Două maşini se deplasează una spre cealaltă cu vitezele v1 şi v2, plecând din două oraşe situate la distanţa d=100km. Vitezele celor două mașini se citesc de la tastatură. Afisați timpul după
+care se întâlnesc, exprimat în minute*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	float a,b,d = 100;
+	printf("introduceti viteza masinilor\n");
+	scanf("%f %f ", &a, &b);
+	if (a + b <= 100) printf("timpul in care se intalnesc masinile este:%f", float((d / (a + b))*60));/*expresia calculeaza distanta in raport cu viteza pentru a afla timpul, si deoarece timpul este in ore, inmulteste cu 60 pentru a afla timpul in care s-au intalnit masinile*/
+	else printf("vitezele sunt introduse gresit");
+	return 0;
+	/* versiunea visual studio 2019*/
+}

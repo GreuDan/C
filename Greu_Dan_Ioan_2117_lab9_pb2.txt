@@ -1,0 +1,38 @@
+/*2. Să se scrie un program care citeşte de la tastatură două şiruri de caractere şi aﬁşează numărul de caractere prin care ele diferă (adică numărul de caractere care există în primul şi nu există în al doilea plus numărul de caractere care există în al doilea şi nu există în primul). Folosiţi pointeri pentru accesul la elementele tablourilor. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+	int a[256] = { 0 };
+	char v[256], s[256],* p,*k;
+	int i,ok=0;
+	printf("introduceti sirurile de caractere:\n");
+	gets_s(v);
+	gets_s(s);
+	p = v;
+	k = s;
+	for (i = 0; i < strlen(v); i++)
+	{
+		if (a[*(p+i)]==0) {
+			if (strchr(s, *(p + i)) == 0) {
+				a[*(p + i)]++;
+				ok++;
+			}
+		}
+	}
+	for (i = 0; i < strlen(s); i++)
+	{
+		if (a[*(k + i)] == 0) {
+			if (strchr(v, *(k + i)) == 0) {
+				ok++;
+				a[*(k + i)]++;
+			}
+		}
+	}
+	printf("%i",ok );
+	return 0;
+	/*2019*/
+
+}

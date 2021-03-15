@@ -1,0 +1,36 @@
+/*3. Să se scrie un program C, în care o funcţie returnează o structură de date adecvată. 
+În acest fel vor ﬁ returnate mai multe valori. 
+Aﬁşaţi rezultatul, valorile iniţiale transferate funcţiei (puteţi realiza orice operaţie în cadrul acelei funcţii),
+cu mesaje adecvate.*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+struct date {
+	long l;
+
+}v[100];
+long muffin(long u ,long x);
+int  main()
+{
+	struct date* p;
+	p = (struct date*)malloc(40 * sizeof(struct date));
+	printf("sirul lui fibonacii:\n");
+	(p+0)->l = 1;
+	(p+1)->l = 1;
+	printf("%i,%i", (p+0)->l,(p+1)->l);
+	for (int i = 2; i < 40; i++)
+	{
+		(p+i)->l=muffin((p+i-1)->l,(p+i-2)->l);
+		printf(",%i", (p+i)->l);
+	}
+	free(p);
+	return  0;
+	/*2019*/
+}
+long  muffin( long u, long x)
+{
+	long  p;
+	p = u + x;
+	return p;
+}

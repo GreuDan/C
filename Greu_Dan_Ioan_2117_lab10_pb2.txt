@@ -1,0 +1,18 @@
+/*2. Să se citească doi parametri întregi şi alţi doi ﬂotanţi din linia de comandă. 
+Să se aﬁşeze suma şi produsul lor. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+int  main(int nel, char* element[])
+{
+	float s = 0, a,p = 1;
+	for (int i = 1; i < nel; i++)
+	{
+		s += atof(element[i]);
+		p *=atof(element[i]);
+	}
+	printf("suma argumentelor este %0.2f si produsul argumentelor este %0.2f", s, p);
+	return 0;
+	/*2019*/
+}

@@ -1,0 +1,18 @@
+/*8. Se citesc de la tastatură ora plecării unui tren din Cluj și ora la care ajunge la Brașov (oră și minute). Să se aﬁșeze durata călătoriei (în ore și minute). Țineți cont de schimbarea orei noaptea. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include<stdio.h>
+int main()
+{
+	int i, f, s1, s2, s;
+	scanf("%d%d", &i, &f);
+	f = f + i * 60;
+	scanf("%d%d", &s1, &s2);
+	s2 = s2 + s1 * 60;
+	if (i >s1 )  s =(24*60 - (f-s2));
+	else s = s2-f;
+	printf("ora sosirii este:%i:%i:", s/60,s%60);
+	return 0;
+}

@@ -1,0 +1,21 @@
+/*1. Să se scrie un program care citeşte n numere reale, pe care le stochează într-un tablou alocat dinamic, aﬁşează suma elementelor negative citite, iar la sfârşit eliberează zona de memorie alocată.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int  n,*p,s=0;
+	printf("introduceti numarul de elemente\n");
+	scanf("%i", &n);
+	p = (int*)malloc(n);
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%i", (p + i));
+		if (*(p + i) < 0) s += *(p + i);
+	}
+	printf("suma este %i", s);
+	free(p);
+	return 0;
+	/*2019*/
+}

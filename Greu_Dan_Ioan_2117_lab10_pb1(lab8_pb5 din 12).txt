@@ -1,0 +1,24 @@
+/*5.  Scrieţi o aplicatie care citeşte de la tastatura două siruri de caractere reprezentand numele si prenumele unei persoane. Aﬁsati-le cu majusculă, separate prin două spatii de tabulare. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+	char v[100], a[100],*p,*k;
+	int nr = 0;
+	p = v;
+	k = a;
+	printf("introdu numele persoanei\n");
+	gets_s(v);
+	printf("introdu prenumele persoanei\n");
+	gets_s(a);
+	for (int i = 0; i < strlen(a); i++)
+		if (*(k+i) >= 'a' && *(k+i) <= 'z') *(k+i) = *(k+i) - 32;
+	for (int i = 0; i < strlen(v); i++)
+		if (*(p+i) >= 'a' && *(p+i) <= 'z') *(p+i) =  *(p+i)- 32;
+	printf("%s\t\t%s", v, a);
+	return  0;
+	/*2019*/
+
+}

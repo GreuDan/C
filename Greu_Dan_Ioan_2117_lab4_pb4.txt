@@ -1,0 +1,27 @@
+/*Definiţi un şir de caractere care va fi afişat cu printf. Definiţi alte şiruri de caractere folosind secvenţe escape. Verificaţi utilizarea spaţiilor albe*/
+/*GREU DAN IOAN*/
+#include<stdio.h>
+#include<string.h>
+#define _CRT_SECURE_NO_WARNINGS
+int main()
+{
+	char s[100];
+	char c[100];
+	gets_s(s);
+	int i=0, ok = 0,n=strlen(s);
+	while (n != 1)
+	{
+		n--;
+		if (s[i] == ' ')
+		{
+			ok++;
+			strncpy_s(c, s, i);
+			printf("sirul format automat este:%s\n", c);/*va afisa doar cand gaseste spatiu*/
+		}
+		i++;	
+	}
+	if (ok != 0) printf("exista %i  spatii albe\n",ok);
+	printf("Sirul original este:%s\n", s);
+	return 0;
+	/* versiunea visual studio 2019*/
+}

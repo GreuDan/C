@@ -1,0 +1,34 @@
+/*1. Scrieţi un program pentru determinarea valorii medii a elementelor pozitive/negative dintr-un tablou unidimensional*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int  main()
+{
+	float v[100],*p, s = 0,n1=0;
+	int n,ok=0,nr=0;
+	p = v;
+	printf("introduceti numarul de valori:");
+	scanf("%i", &n);
+	printf("introduceti valorile:\n");
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%f", (p+i));
+		if (*(p + i) >= 0)
+		{
+			s += *(p + i);
+			ok++;
+		}
+		if (*(p + i) < 0)
+		{
+			nr++;
+			n1 += *(p + i);
+		}
+	
+	}
+	n1 = (float)n1 / nr;
+	s = (float)s / ok;
+	printf("\nmedia valorilor pozitive este %0.2f si media valorilor negative este %0.2f", s,n1);
+	return  0;
+	/*2019*/
+
+}

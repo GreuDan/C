@@ -1,0 +1,53 @@
+/*8. Să se scrie un program care determină câtul împărţirii a doi întregi folosind scăderi succesive */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void verificare(float, float);
+void ana(float,float);
+int main()
+{
+	float a,b;
+	printf("Introduceti valorile:\n");
+	scanf("%f%f", &a,&b);
+	verificare(a, b);
+	return 0;
+	/*2019*/
+
+}
+void verificare(float a, float b)
+{
+	if (a < 0 && b == 0) printf("Catul lui %f si %f este -infinit", a, b);
+	if (a > 0 && b == 0) printf("Catlu lui %f si %f este infinit", a, b);
+	if (a == 0) printf("Catul lui %f si %f este 0", a, b);
+	if (a != 0 && b != 0) {
+		printf("Catul lui %0.0f si %0.0f este:", a, b);
+		ana(a, b);
+	}
+}
+void ana(float a,float b)
+{
+	float c;
+	c = a / b;
+	if ((a < 0 && b>0) || (a > 0 && b > 0))
+	{
+		while (a != c)
+		{
+			printf("\n%f-%f", a, c);
+			a = a - c;
+			if (a == 0) a = c;
+			if (a > -1 && a < 1) break;
+		}
+		printf("\n%f", a);
+	}
+	else if(b<0 || (a<0 && b<0)){
+		while (a != c)
+		{
+			printf("\n%f+(%f)", a, c);
+			a = a + c;
+			if (a == 0) a = c;
+			if (a > -1 && a < 1) break;
+		}
+		printf("\n%f", a);
+	}
+
+}

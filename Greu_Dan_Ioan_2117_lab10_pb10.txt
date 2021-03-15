@@ -1,0 +1,58 @@
+/*10. Scrieţi un program C în care se citesc de la tastatură elementele de tip întreg ale unui tablou unidimensional A prin intermediul unei funcţii.
+Scrieţi o altă funcţie care completează un tablou unidimensional B. 
+Fiecare element al lui B este obţinut prin scăderea mediei aritmetice a tuturor elementelor din A din elementul corespunzător din A. 
+Scrieţi o funcţie care permite aﬁşarea unui tablou unidimensional şi aﬁşaţi tablourile unidimensionale A şi B. (utilizând pointeri, fără variabile globale).
+Ex: A = 1 2 3 4 5 6 7 8 9 
+medie aritmetica = 5 
+B = -4 -3 -2 -1 0  1 2  3  4  */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void vector(int*,int,float*);
+void tbl(int*, float*, int, float*);
+void afs(int*, int, float*, float*);
+int main()
+{
+	int v[100], * p;
+	p = v;
+	int i = 0, n, * nr;
+	float *k,*z,b[100],m=0;
+	k = b;
+	z = &m;
+	printf("introduceti numarul de elemente:");
+	scanf("%i", &n);
+	printf("\nintroduceti elementele:");
+	vector(p,n,z);
+	tbl(p, k, n, z);
+	afs(p, n, k, z);
+	return 0;
+	/*2019*/
+
+}
+void vector(int*p,int n,float*z)
+{
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%i", p + i);
+		*z += *(p + i);
+	}
+	*z = (float)*z / n;
+}
+void tbl(int* p, float* k, int n, float* z)
+{
+	for (int i = 0; i < n; i++)
+		*(k + i) = *(p + i) - *z;
+}
+void afs(int* p, int n, float* k, float* z)
+{
+	printf("\nA=");
+	for (int i = 0; i < n; i++)
+		printf(" %i", *(p + i));
+	printf("\nmedia aritmetica:%0.2f", *z);
+	printf("\nB=");
+	for (int i = 0; i < n; i++)
+		printf(" %0.2f", *(k + i));
+	
+	
+}

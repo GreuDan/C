@@ -1,0 +1,66 @@
+/*10. Să se deﬁnească o structură cu numele Masina, care are câmpurile producator,
+anul fabrictiei, capacitatea_cilindric si culoare.
+Să se aloce dinamic memorie pentru n date de tip Maşina şi să se citească informaţiile pentru acestea.
+Să se aﬁşeze inregistrarile maşinilor de culoare roşie, fabricate după anul 2010.*/
+/*Greu Dan Ioan*/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct Masina {
+	char producator[100];
+	int anul_fabricatiei;
+	float  capacitatea_cilindric;
+	char culoare[50];
+};
+void citire(struct Masina*);
+void afisare(struct Masina*);
+int main()
+{
+	struct Masina* c;
+	int n;
+	printf("Numar masini:\n");
+	scanf("%i", &n);
+	c = (struct Masina*)malloc(n * sizeof(struct Masina));
+	for (int i = 0; i < n; i++)
+	{
+		printf("Datele masinii %i\n", i + 1);
+		citire((c + i));
+	}
+	printf("Masinile de culoare rosie dupa 2010 sunt:\n");
+	for (int i = 0; i < n; i++)
+	{
+		afisare((c + i));
+	}
+	free(c);
+	return 0;
+	/*2019*/
+}
+void citire(struct Masina* p)
+{
+
+	printf("Producator masina:\n");
+	scanf("%s", &p->producator);
+	printf("Anul fabricatiei:\n");
+	scanf("%i", &p->anul_fabricatiei);
+	printf("Capacitate cilindrica:\n");
+	scanf("%f", &p->capacitatea_cilindric);
+	printf("Culoare masina\n");
+	scanf("%s", &p->culoare);
+}
+void afisare(struct Masina* p)
+{
+	if (p->anul_fabricatiei > 2010 && strlen(p->culoare) == 4)\
+		if (p->culoare[0] == 'R' || p->culoare[0] == 'r')
+			if (p->culoare[1] == 'o' || p->culoare[1] == 'O')
+			{
+				printf("\nProducator masina:\n");
+				printf("%s", p->producator);
+				printf("\nAnul fabricatiei:\n");
+				printf("%i", p->anul_fabricatiei);
+				printf("\nCapacitate cilindrica:\n");
+				printf("%f", p->capacitatea_cilindric);
+				printf("\nCuloare masina\n");
+				printf("%s", p->culoare);
+			}
+}

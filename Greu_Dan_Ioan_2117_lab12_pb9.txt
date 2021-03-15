@@ -1,0 +1,63 @@
+/*9. Scrieti o aplicaţie C, care alocă dinamic memorie pentru memorarea datelor a N produse,
+folosind o structură Produs, cu câmpurile denumire, pret, cantitate, citeşte datele pentru ﬁecare dintre produse si 
+aﬁşează produsul din care avem cel mai mult pe stoc.
+În ﬁnal va elibera memoria alocată. */
+/*Greu Dan Ioan*/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct Produs{
+	char denumire[100];
+	float pret;
+	float cantitate;
+};
+void citire(struct Produs*,int,int,int*,float*);
+void afisare(struct Produs*);
+int main()
+{
+	struct Produs* c;
+	int n;
+	float m, * max;
+	int *k, p;
+	max = &m;
+	k = &p;
+	printf("Numar produse:\n");
+	scanf("%i", &n);
+	c = (struct	Produs*)malloc(n * sizeof(struct Produs));
+	for (int i = 0; i < n; i++)
+	{
+		printf("Datele produs %i\n", i + 1);
+		citire((c + i),i,p,k,max);
+	}
+	printf("Produsul cu cantitatea cea mai mare:\n");
+	afisare((c + p));
+	free(c);
+	return 0;
+	/*2019*/
+}
+void citire(struct Produs* p,int i,int c,int *k,float* max)
+{
+	int ok = 0;
+	printf("Denumire produs:\n");
+	scanf("%s", &p->denumire);
+	printf("pret produs:\n");
+	scanf("%f", &p->pret);
+	printf("Cantitate produs:\n");
+	scanf("%f", &p->cantitate);
+	if (p->cantitate > * max)
+	{
+		*max = p->cantitate;
+		c = i;
+		*k = c;
+	}
+}
+void afisare(struct Produs* p)
+{
+	printf("\nDenumire produs:\n");
+	printf("%s", p->denumire);
+	printf("\nPret produs:\n");
+	printf("%0.2f", p->pret);
+	printf("\nCantitate produs:\n");
+	printf("%0.2f", p->cantitate);
+}

@@ -1,0 +1,44 @@
+/*7. Citiţi de la tastatura elementele unei matrice cu elemente de tip ﬂoat, cu dimensiunea 3x3. Rearanjaţi coloanele matricei astfel ca suma elementelor de pe o anumită coloană sa ﬁe mai mica decat suma elementelor de pe coloana următoare.*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+	float v[3][3], s[3];
+	for (int i = 0; i < 3; i++)
+	{
+		s[i] = 0;
+		printf("\n");
+		for (int j = 0; j < 3; j++)
+		{
+			scanf("%f", &v[i][j]);
+			s[i] += v[i][j];
+
+		}
+	}
+	int ok;
+	for (int i = 0; i < 2; i++)
+	{
+		if (s[i] > s[i + 1])
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				ok = v[i][j];
+				v[i][j] = v[i + 1][j + 1];
+				v[i + 1][j + 1] = ok;
+			}
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < 3; j++)
+		{
+			printf("%0.1f ", v[i][j]);
+		}
+	}
+	return  0;
+	/*2019*/
+
+}

@@ -1,0 +1,42 @@
+/*2. Să se scrie un program C, în care folosind câte o funcţie se transferă ca parametru o variabilă de tip structură de date,
+ca valoare şi, respectiv, prin adresă folosind pointeri. 
+În funcţia main() iniţializaţi câmpurile structurii cu date citite de la tastatură.
+În ambele funcţii aﬁşaţi datele din structură folosind un mesaj adecvat. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct date {
+	int lungime;
+	int latime;
+
+}a1;
+void date1(struct date*);
+void date2(int , int);
+int  main()
+{
+	struct date* p;
+	p = (struct date*)malloc(sizeof(struct date));
+	printf("introduceti inregistrarea in structura:\n");
+	scanf("%i", &p->lungime);
+	scanf("%i", &p->latime);
+	date1(p);
+	date2(p->lungime, p->latime);
+	return  0;
+	/*2019*/
+}
+void date1(struct date* p)
+{
+	printf("inregistrarea din structura date afisata folosind pointer:\n");
+	printf("%i\n", p->lungime);
+	printf("%i\n", p->latime);
+}
+void date2(int p, int  m)
+{
+	printf("inregistrarea din structura de date ca valoare:\n");
+	printf("%i\n", p);
+	printf("%i\n", m);
+	printf("lingime + latime=%i", p + m);
+
+}

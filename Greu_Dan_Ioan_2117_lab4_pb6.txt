@@ -1,0 +1,16 @@
+/*6. Definiți într-un program constante simbolice de tipuri diferite (întregi, reale, șiruri de caractere). Afișati valorile acestor constante utilizând operatorul printf*/
+/*GREU DAN IOAN*/
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i;
+	float p;
+	char s[255];
+	scanf_s("%i %f ", &i, &p);
+	gets_s(s);
+	printf("constanta de tip int este :%i\n constanta de tip float este %f\n", i, p);
+	printf("valoarea de tip char este:%s", s);
+	return 0;
+	/* versiunea visual studio 2019*/
+}

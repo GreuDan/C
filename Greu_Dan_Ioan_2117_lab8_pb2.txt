@@ -1,0 +1,28 @@
+/*2. Scrieţi un program pentru determinarea celui mai mic element pozitiv dintr-un tablou unidimensional. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int  main()
+{
+    float v[100],min=0,ok=0;
+	int n;
+	printf("introduceti numarul de valori:");
+	scanf("%i", &n);
+	printf("introduceti valorile:\n");
+	scanf("%f", &v[0]);
+	min = v[0];
+	for (int i = 1; i < n; i++)
+	{
+		scanf("%f", &v[i]);
+		if (v[i] >= 0 && min > v[i])
+		{
+			min = v[i];
+			ok++;
+		}
+	}
+	if (ok == 0) printf("\nExista doar valori negative");
+	else printf("\n cel mai mic numar pozitiv este: %0.2f", min);
+	return  0;
+	/*2019*/
+
+}

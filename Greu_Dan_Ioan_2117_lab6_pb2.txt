@@ -1,0 +1,29 @@
+/*2. Să se scrie un program care citeşte lungimile laturilor unui triunghi (folosind variabile întregi) şi
+afişează aria triunghiului ca valoare reală*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	int a, b, c;
+	float x;
+	float A;
+	printf("introduceti valorile laturilor triunghiului:\n");
+	scanf("%i%i%i", &a, &b, &c);
+	if (a <= 0 || b <= 0 || c <= 0)
+	{
+		printf("Valorile laturilor triunghiului sunt introduse gresit\n");
+		main();
+	}
+	x = float((a + b + c) / 2);
+	if ((x -a)*(x-b)*(x-c)<= 0) main();
+	A = x*(x - a)*(x - b)*(x - c);
+	if (A <= 0)
+	{
+		main();
+	}
+	printf("Aria triunghiului este %f", sqrt(A));
+	return 0;
+	/* versiunea visual studio 2019*/
+}

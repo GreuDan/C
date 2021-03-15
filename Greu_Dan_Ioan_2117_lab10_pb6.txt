@@ -1,0 +1,14 @@
+/*6. Scrieţi un program în care să citiți de la tastatură o serie de mesaje ce vor ﬁ stocate într-un tablou de pointeri spre şiruri de caractere.Aﬁşaţi apoi mesajele.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	const char* v[3] = { "ana are mere","ana are banane","ana are pere" };
+	for (int i = 0; i < 3; i++)
+		printf("%s\n", *(v + i));
+	return 0;
+	/*2019*/
+
+}

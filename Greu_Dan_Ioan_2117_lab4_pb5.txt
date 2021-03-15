@@ -1,0 +1,23 @@
+/*5. Să se scrie un program în care se dau 3 numere întregi și se cere să se calculeze suma lor ponderată, ponderile fiind numere subunitare a căror suma este 1.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	float v[10], s = 0, s1 = 0,s2=0, p;
+	int i;
+	scanf("%f %f %f", &v[1], &v[2], &v[3]);
+	s = s + v[1] + v[2] + v[3];
+	printf("introduceti ponderile numerelor");
+	for (i = 1; i <= 3; i++)
+	{
+		scanf("%f", &p);
+		s2 = s2 + p;
+		s1 = s1 + p * v[i];
+	}
+	if (s2 == 1) printf("suma ponderata a 3 numere cu suma ponderilor subunitare egala cu 1 este:%f", s1);
+	else printf("ponderile sunt introduse gresit");
+	return 0;
+	/* versiunea visual studio 2019*/
+}

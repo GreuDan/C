@@ -1,0 +1,45 @@
+/*16. Să se scrie o aplicaţie C în care se introduc de la tastatură numere întregi, până ce utilizatorul apasă tasta <Esc>. Să se determine şi să se aﬁşeze media numerelor impare pozitive.*/
+/*GREU DAN IOAN*/
+// programul executa cu o valoare in plus de la utilizator cu scopul de a se termina programul dupa apasarea lui ESC
+// datorita lui GetAsyncKeyState(VK_ESCAPE) care verifica in urma cu o citire de la tastatura
+#define _CRT_SECURE_NO_WARNINGS
+#include<Windows.h>
+#include<stdio.h>
+void vector(int a,int v[]);
+float medie(int v[],int);
+int main()
+{
+	int a, v[100];
+	a = 1;
+	printf("introduceti valori:\n");
+	vector(a,v);
+	return 0;
+	/*2019*/
+
+}
+void vector(int a,int v[])
+{
+	int b,i=0,c;
+	while (a)
+	{
+		scanf("%i", &b);
+		if (GetAsyncKeyState(VK_ESCAPE))
+		{
+			printf("Media aritmetica a numerelor impar pozitive introduse  este:");
+			int j, nr=0;
+			if (i == 0) main();
+			for (j = 0; j < i; j++)//pentru ca elimina valoarea junk introdusa in momentul apasarii lui ESC, de aceea va lua doar numerele impare pozitive
+			{
+				printf("%i", v[j]);
+				nr = nr+v[j];
+			}
+			printf("\n%f", (float)nr / j);
+			break;
+		}
+		if (b > 0 && b % 2 != 0)
+		{
+			v[i] = b;
+			i++;
+		}
+	}
+}

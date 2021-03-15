@@ -1,0 +1,32 @@
+/*9. Scrieţi un program care citeşte de la tastatură elementele de tip ﬂoat ale unui tablou unidimensional, elemente ce reprezintă mediile unei grupe de studenţi.
+Să se scrie o funcţie care determină numărul studenţilor cu media >= 8.
+Aﬁşaţi rezultatul în main(). (lucrati cu pointeri, fără variabile globale). */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int media(float*,int);
+int main()
+{
+	float v[100], * p;
+	p = v;
+	int i = 0, n, * nr;
+	printf("introduceti numarul de elemente:");
+	scanf("%i", &n);
+	printf("\nintroduceti elementele:");
+	for (i = 0; i < n; i++)
+	{
+		scanf("%f", p + i);
+    }
+	printf("\nNumarul de studenti cu media mai mare decat 8 este:%i", media(p, n));
+	return 0;
+	/*2019*/
+
+}
+int media(float* p,int n)
+{
+	int nr = 0;
+	for (int i = 0; i < n; i++)
+		if (*(p + i) >= 8) nr++;
+	return nr;
+}

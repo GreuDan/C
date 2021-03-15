@@ -1,0 +1,51 @@
+/*12. Să se citească de la tastatură elementele întregi ale unei matrice de dimensiune m x n. Dacă matricea este pătratică să se aﬁşeze elementele diagonalei secundare, altfel să se aﬁşeze suma elementelor de pe o coloană dată, c. Valorile m, n şi c se citesc de la tastatură şi se vor scrie funcţii pentru operaţiile cerute.*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void patratica(int *p, int m);
+void inegala(int *p, int m, int c);
+int  main()
+{
+	int a[100][100],*p;
+	p = a[0];
+	int m, n, c;
+	printf("introduceti dimensiunile matricei:\n");
+	scanf("%i %i", &m, &n);
+	printf("introduceti valorile elementele matricei\n");
+	for (int i = 0; i < m; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < n; j++)
+			scanf("%i", (p+i*m+j));
+	}
+	if (m == n) patratica(p, m);
+	else {
+		printf("introdu numarul coloanei(numaratoarea coloanei incepe de la 0 si se termina la %i):", n - 1);
+		scanf("%i", &c);
+		inegala(p, m, c);
+	}
+	return 0;
+	/*2019*/
+
+}
+void patratica(int *p, int m)
+{
+	printf("\nDiagonala secundara este formata din elementele: ");
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i + j == m - 1) printf("%i ", *(p+i*(m-1)+j));
+		}
+	}
+}
+void inegala(int *p, int m, int c)
+{
+	int s = 0;
+	for (int i = 0; i < m; i++)
+	{
+		s += *(p+i*(m-1)+c);
+	}
+	printf("\nsuma elementelor de pe coloana %i este %i", c, s);
+}

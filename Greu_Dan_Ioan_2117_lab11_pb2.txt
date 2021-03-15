@@ -1,0 +1,66 @@
+/*2. Fie o aplicaţie de gestiune distribuită care consideră că tratează activitatea din 5 oraşe diferite.
+În ﬁecare oraş sunt 3 birouri de vânzare.
+Să se creeze în cadrul unei funcţii un tablou de 5 pointeri către date de tip ﬂotant, ﬁecare pointer din acest tablou referind o zonă în heap alocată dinamic de 3 date ﬂotante ce reprezintă situaţia vânzărilor la sfârşitul unei zile.
+Se cere prelucrarea datelor din ﬁecare oraş, respectiv din ﬁecare birou de vânzare, prelucrare ce va include:
+• funcţie care permite introducerea datelor pentru cele 5 oraşe şi respectiv pentru ﬁecare oraş datele pentru cele 3 magazine din oraş;
+• funcţie ce permite determinarea totalului de vânzări pe ﬁecare oraş în parte, valoare pe care o va returna astfel că în programul principal se va calcula şi aﬁşa media vânzărilor din toate cele 5 oraşe; \
+• funcţie care va permite eliberarea spaţiului de memorie alocat dinamic astfel încât dacă aceeaşi ﬁrmă are alte 3 magazine în cele 5 oraşe de proﬁl diferit să poată realoca un spaţiu echivalent pentru noile prelucrări pe care le va efectua. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+void orase(float* str[]);
+void total(float* str[], float*);
+void gol(float* str[]);
+int main()
+{
+	float* str[6], v[5] = { 0 }, * m, mt = 0;
+	m = v;
+	orase(str);
+	total(str, m);
+
+	for (int i = 0; i < 5; i++)
+	{
+		mt += *(m + i);
+	}
+	mt = (float)mt / 5;
+	printf("Media totala este:%0.2f\n", mt);
+	gol(str);
+	return 0;
+	/*2019*/
+}
+void orase(float* str[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		str[i] = (float*)malloc(3 * sizeof(float));
+		printf("Orasul %i:\n", i + 1);
+		for (int j = 0; j < 3; j++)
+		{
+			printf("date magazin %i:\n", j + 1);
+			scanf("%f", (str[i] + j));
+		}
+	}
+
+}
+void total(float* str[], float* m)
+{
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			*(m + i) += *(str[i] + j);
+		}
+		*(m + i) = (float) * (m + i) / 3;
+		printf("%f", *(m + i));
+	}
+
+
+}
+void gol(float* str[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		free(str[i]);
+	}
+}

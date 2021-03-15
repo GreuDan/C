@@ -1,0 +1,13 @@
+/*5. Citiţi de la tastatură două valori întregi a şi b (a≠0), unde a şi b sunt coeﬁcienţii ecuaţiei ax+b=0.  Rezolvaţi ecuaţia şi aﬁşaţi rezultatul. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	int a, b;
+	float x;
+	scanf("%d%d", &a, &b);
+	x =(-b /(float) a);
+	printf("necunoscuta x din ecuatia %ix+%i=0 este:x=%f", a, b, x);
+	return 0;
+}

@@ -1,0 +1,65 @@
+/*6. Să se scrie un program care aﬁşează numele, prenumele şi media studentului
+cu cele mai bune rezultate din grupă în urma sesiunii de iarnă.
+Folosiţi pentru aceasta un tablou de structuri, de un tip numit student, alocarea dinamica,
+şi o funcţie de care returnează înregistrarea student cu  media cea mai mare*/
+/*Greu Dan Ioan*/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct student {
+	char num[100];
+	char prm[100];
+	float m;
+};
+void citire(struct student*);
+int medie(struct student*, float*);
+void Afisare(struct student*);
+int main()
+{
+	struct student* c;
+	int n, p;
+	float* max, n1;
+	max = &n1;
+	printf("Numar studenti din grupa:\n");
+	scanf("%i", &n);
+	c = (struct student*)malloc(n * sizeof(struct student));
+	for (int i = 0; i < n; i++)
+	{
+		printf("Datele studentului  %i\n", i + 1);
+		citire((c + i));
+		if (medie((c + i), max)) p = i;
+	}
+	printf("Studentul cu media cea mai mare:\n");
+	Afisare(c + p);
+	free(c);
+	return 0;
+	/*2019*/
+}
+int medie(struct student* p, float* max)
+{
+	if ((p->m) > * max)
+	{
+		*max = p->m;
+		return 1;
+	}
+	else return 0;
+}
+void citire(struct student* p)
+{
+	printf("Nume student:\n");
+	scanf("%s", &p->num);
+	printf("Prenume student:\n");
+	scanf("%s", &p->prm);
+	printf("Media student:\n");
+	scanf("%f", &p->m);
+}
+void Afisare(struct student* p)
+{
+	printf("Nume student:\n");
+	printf("%s", p->num);
+	printf("\nPrenume student:\n");
+	printf("%s", p->prm);
+	printf("\nMedia student:\n");
+	printf("%0.2f", p->m);
+}

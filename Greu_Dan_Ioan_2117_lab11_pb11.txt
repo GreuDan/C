@@ -1,0 +1,22 @@
+/*11. Generați un tablou de pointeri către șiruri constante folosind funcția strdup() sau o funcție speciﬁcă.
+Aﬁșați valorile pare din tablou.*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    char* str[3];
+	const char a[] = "ana", p[] = "pere", c[] = "tace";
+	str[0] = (char*)malloc(strlen(a) - 1);
+	str[1] = (char*)malloc(strlen(p) - 1);
+	str[2] = (char*)malloc(strlen(c) - 1);
+	strcpy(str[0], a);
+	strcpy(str[1], p);
+	strcpy(str[2], c);
+	for (int i = 0; i < 3; i++)
+		if (i % 2 == 0) printf("%s ", str[i]);
+	return 0;
+	/*2019*/
+}

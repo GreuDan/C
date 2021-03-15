@@ -1,0 +1,38 @@
+/*10. Să se scrie un program care determină numărul de cifre care compun un număr întreg citit de la tastatură*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void verificare(long double);
+void ana(long double);
+int main()
+{
+	long double a;
+	printf("Introduceti valoarea:\n");
+	scanf("%Lf", &a);
+	verificare(a);
+	return 0;
+	/*2019*/
+
+}
+void verificare(long double a)
+{
+	if (a == 0) printf("Numarl  %0.0Lf este format din  1 cifra", a);
+	else
+	{
+		printf("\nNumarul %0.0Lf este format din ", a);
+		if (a < 0) {
+			a = -a;
+		}
+		ana(a);
+	}
+}
+void ana(long double a)
+{
+	int nr=0;
+	while (a != 0)
+	{
+		a = a / 10;
+		nr++;
+	}
+	printf("%i cifre", nr-324);
+}

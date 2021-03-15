@@ -1,0 +1,28 @@
+/*4. Citiţi de la tastatură două valori întregi care reprezintă catetele unui triunghi dreptunghic. Determinaţi ipotenuza şi perimetrul triunghiului. Aﬁşaţi rezultatul pe linii diferite. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+float i(int, int);
+float p(int, int, float);
+int main()
+{
+	int a, b;
+	scanf("%i%i", &a, &b);
+	printf("ipotenuza este:%f\n", i(a, b));
+	printf("perimetrul este:%f",  p(a, b, i(a, b)));
+	return 0;
+}
+float i(int a, int b)
+{
+	float i;
+	i = a * a + b * b;
+	return sqrt(i);
+}
+float p(int a, int b, float i)
+{
+	float p;
+	p = a + b + i;
+	return p;
+}
+/*versiunea 2019*/

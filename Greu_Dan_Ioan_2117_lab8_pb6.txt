@@ -1,0 +1,53 @@
+/*6. Scrieţi o aplicatie care deﬁneşte două matrice de valori intregi. Dimensiunea si elementele matricilor sunt citite de la tastatura. Scrieţi functiile care:     a) aﬁşează poziţiile elementelor pare din ﬁecare matrice;    b) aﬁşează suma elementelor impare din ambele matrice;    c) aﬁşează suma matricelor;  */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+	int v[100][100], a[100][100], c[100][100];
+	int m, n, x, t, s = 0, im = 0;
+	printf("introduceti dimensiunea primei matrice (linie/coloana):\n");
+	scanf("%i%i", &m, &n);
+	printf("introduceti dimensiunea celei de a doua matrice (linie/coloana):\n");
+	scanf("%i%i", &x, &t);
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+		{
+			scanf("%i", &v[i][j]);
+			if (v[i][j] % 2 != 0) im += v[i][j];
+		}
+	for (int i = 0; i < x; i++)
+		for (int j = 0; j < t; j++)
+		{
+			scanf("%i", &a[i][j]);
+			if (a[i][j] % 2 != 0) im += a[i][j];
+		}
+	printf("pozitile elementelor pare din ambele matrice sunt:\n");
+		for (int i = 0; i < m; i++)
+			for (int j = 0; j < n; j++)
+				if (v[i][j] % 2 == 0) printf("%i %i ", i, j);
+	printf("\n");
+	for (int i = 0; i < x; i++)
+		for (int j = 0; j < t; j++)
+			if (a[i][j] % 2 == 0) printf("%i %i ", i, j);
+	printf("\nsuma elementelor impare din ambele matrice este:%i", im);
+	if (m == x && n == t)
+	{
+		printf("suma matricelor este:\n");
+			for (int i = 0; i < m; i++)
+			{
+
+				for (int j = 0; j < n; j++) 
+				{
+					c[i][j] = a[i][j] + v[i][j];
+					printf("%i ", c[i][j]);
+				}
+				printf("\n");
+			}
+	}
+	else printf("Matricele nu au dimensiunile egale");
+	return  0;
+	/*2019*/
+
+}

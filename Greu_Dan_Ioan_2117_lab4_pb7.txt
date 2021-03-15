@@ -1,0 +1,15 @@
+/*7. Definiți 3 numere reale a, b, și c. Afișați rezultatul operației 1/a+1/b+1/c. Efectuati aceiasi operatie considerand ca si intrare numere intregi*/
+/*GREU DAN IOAN*/
+#include<stdio.h>
+#include<cmath>
+int main()
+{
+	float a,b,c,s = 0,p;
+	scanf_s("%f %f %f", &a, &b,&c);
+	s = s + a*b + a * c + b * c;
+	p = a * b * c;
+	s = s / p;
+	printf("rezultatul operatiei 1/a+1/b+1/c este:%f",s);
+	return 0;
+	/* versiunea visual studio 2019*/
+}

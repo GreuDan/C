@@ -1,0 +1,14 @@
+/*7. Se citește de la tastatură un număr întreg, ce reprezintă raza unui cerc. Să se implementeze funcțiile ce calculează lungimea și aria cercului. Să se aﬁșeze aceste valori într-un câmp de aﬁșare cu dimensiunea 10. Pentru valoarea lui PI deﬁniți o constantă simbolică. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include<stdio.h>
+int main()
+{
+	int i;
+	scanf("%d", &i);
+	printf("Aria cercului este %f", i * i * M_PI);
+	printf("Lungimea cercului este %f", 2 * i * M_PI);
+	return 0;
+}

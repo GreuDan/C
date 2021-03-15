@@ -1,0 +1,60 @@
+/*4. Citiţi de la tastatură elementele a 2 matrici de valori întregi.
+Scrieţi o funcţie care primeşte ca parametri pointerii la cele 2 matrici şi returnează un pointer la matricea sumă.
+Rezultatul însumării matricelor va ﬁ aﬁşat în funcţia main.
+Aﬁşaţi elementele de pe diagoanala secundară a matricii sumă, folosind acelaşi pointer.*/
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int* matrice(int*, int*, int, int, int*);
+int  main()
+{
+	int m, n, v[100][100], a[100][100], suma[100][100], * p, * k, * z;
+	p = v[0];
+	k = a[0];
+	z = suma[0];
+	printf("introduceti dimensiunile matricelor(lini/coloana):\n");
+	scanf("%i%i", &n, &m);
+	if (n != m) main();
+	matrice(p, k, m, n, z);
+	printf("Matricea suma este:");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < m; j++)
+			printf("%i ", *(z + i * n + j));
+		if (i == n - 1)
+		{
+			printf("\nElemetele de pe diagonala secundara a maticei suma sunt:\n");
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = 0; j < m; j++)
+					if (j + i == n - 1) printf("%i ", *(z + i * n + j));
+			}
+		}
+
+
+	}
+	return 0;
+	/*2019*/
+}
+int* matrice(int* p, int* k, int m, int n, int* z)
+{
+	printf("introduceti elementele din prima matrice:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < m; j++)
+			scanf("%i", (p + i * n + j));
+
+	}
+	printf("introduceti elementele din a doua matrice:\n");
+	for (int i = 0; i < n; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < m; j++) {
+			scanf("%i", (k + i * n + j));
+			*(z + i * n + j) = *(p + i * n + j) + *(k + i * n + j);
+		}
+	}
+	return z;
+}

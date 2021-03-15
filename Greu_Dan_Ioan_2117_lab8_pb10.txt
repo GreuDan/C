@@ -1,0 +1,32 @@
+/*10. Scrieţi programul care citeşte elementele întregi ale unui tablou unidimensional şi construieşte într-o funcţie un alt tablou unidimensional în care se vor stoca resturile împărţirii elementelor primului tablou la numărul elementelor pozitive din acesta. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void verificare(int v[], int nr,int n);
+int  main()
+{
+	int v[100];
+	int n,nr=0;
+	printf("introdu numarul de valori:\n");
+	scanf("%i", &n);
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%i", &v[i]);
+		if (v[i]> 0) nr++;
+	}
+	verificare(v, nr, n);
+	return  0;
+	/*2019*/
+
+}
+void verificare(int v[], int nr, int n)
+{
+	float a[100];
+	for (int i = 0; i < n; i++)
+	{
+		a[i] = (float)v[i] / nr;
+		printf("%0.2f ", a[i]);
+	}
+
+}

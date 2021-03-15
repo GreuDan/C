@@ -1,0 +1,19 @@
+/*3. Scrieţi o aplicaţie care citeşte de la tastatură un şir de caractere cu lungimea mai mare decât 7.
+Folosiţi un pointer pt. a accesa şi aﬁşa caracterele de pe poziţiile 1, 3, 5 şi 7.  */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+int  main(int nel, char* element[])
+{
+	char s[100],*p;
+	printf("introduceti sirul:\n");
+	gets_s(s);
+	p = s;
+	for (int i = 0; i < 7; i=i+2)
+	{
+		printf("Elementul de pe pozitia %i este %c\n", i + 1, *(p + i));
+	}
+	return 0;
+	/*2019*/
+}

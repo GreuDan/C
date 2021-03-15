@@ -1,0 +1,50 @@
+/*7. Să se scrie o aplicaţie C, care alocă dinamic memorie pentru datele a N studenţi, (nume, prenume si gen),
+citeşte datele pentru ﬁecare din aceştia, aﬁşează numărul studentelor si elibereaza memoria alocată.*/
+/*Greu Dan Ioan*/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<string.h>
+#include<stdlib.h>
+struct student {
+	char nume[100];
+	char prenume[100];
+	char gen[50];
+};
+void citire(struct student*, int*, int);
+int main()
+{
+	struct student* c;
+	int n, p = 0, * nr;
+	nr = &p;
+	printf("Numar studenti:\n");
+	scanf("%i", &n);
+	c = (struct student*)malloc(n * sizeof(struct student));
+	for (int i = 0; i < n; i++)
+	{
+		printf("Datele persoanei %i\n", i + 1);
+		citire((c + i), nr, p);
+	}
+	printf("Numarul studentelor este:%i\n", *nr);
+	free(c);
+	return 0;
+	/*2019*/
+}
+void citire(struct student* p, int* nr, int c)
+{
+
+	printf("Nume student:\n");
+	scanf("%s", &p->nume);
+	printf("Prenume student:\n");
+	scanf("%s", &p->prenume);
+	printf("Gen student:\n");
+	scanf("%s", &p->gen);
+	if ((p->gen[0]) == 'f')
+	{
+		c++;
+		*nr = c;
+	}
+	else if ((p->gen[0]) == 'F') {
+		c++;
+		*nr = c;
+	}
+}

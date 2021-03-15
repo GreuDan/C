@@ -1,0 +1,26 @@
+/*1. Să se scrie un program care citeşte de la tastatură un şir de caractere, apoi elimină  din şir caracterele care se repetă şi aﬁşează în ﬁnal şirul obţinut, folosind pointeri. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+	char v[256],*k,*p;
+	int i;
+	printf("introduceti sirul de caractere:\n");
+	gets_s(v);
+	p = v;
+	for (i = 0; i < strlen(v); i++)
+	{
+		for(int j=i+1;j<strlen(v);j++){
+			if (*(p+i)==*(p+j)) {
+				strcpy(v + j, v + j + 1);
+				j--;
+			}
+		}
+	}
+	printf("%s", v);
+	return 0;
+	/*2019*/
+
+}

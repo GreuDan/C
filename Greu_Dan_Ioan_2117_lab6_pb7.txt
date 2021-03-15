@@ -1,0 +1,25 @@
+/*7. Se citesc de la tastatură 2 numere reale. Să se realizeze operațiile de adunare, scădere, înmulțire și împărțire cu valorile date. Să se afișeze rezultatele obținute, apoi să se rotunjească
+valorile obținute la valori întregi, folosind operatorul cast și fără a folosi funcții specifice. Să se
+afișeze apoi valoarea minimă dintre numerele citite folosind operatorul condițional (ternar).*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+void operatii(float, float);
+int main()
+{
+	float a, b;
+	printf("Introduceti valorile:\n");
+	scanf("%f%f", &a, &b);
+	operatii(a, b);
+	return 0;
+	/*2019*/
+
+}
+void operatii(float a, float b)
+{
+	printf("suma numerelor %f si %f este:%i\n", a,b,int(a + b));
+	printf("diferenta numerelor %f si %f este:%i\n",a,b, int(a - b));
+	printf("produsul nemerelor %f si %f este:%i\n",a,b, int(a * b));
+	printf("catul numerelor %f si %f este:%i\n", a, b, int(a / b));
+	printf("cel mai mic numar dintre %f si %f este:%f", a, b, (a < b) ? a : b);
+}

@@ -1,0 +1,32 @@
+/*6. Să se scrie o aplicaţie C/C++ care citeşte de la tastatură un şir de caractere. Să se scrie o funcţie care aﬁşează caracterele ce compun şirul şi numărul de apariţii ale ﬁecăruia, folosind pointeri. */
+/*GREU  DAN  IOAN*/
+#define  _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int  main()
+{
+	int  v1[256] = { 0 },ok[256],*r,nr=0;
+	char v[100],a[100],* p, * k;
+	printf("introduceti sirul de caractere\n");
+	gets_s(v);
+	p = v;
+	k = a;
+	r = ok;
+	for (int i = 0; i < strlen(v); i++)
+	{
+		v1[*(p + i)]++;
+	}
+	for(int i=0;i<256;i++)
+		if (v1[i] != 0)
+		{
+			*(k + nr) = i;
+			*(r + nr) = v1[i];
+			nr++;
+		}
+	printf("\nNumarul este format din caracterele urmatoare si vom afisa de asemenea nr de aparitii ale acestora\n");
+	for (int i = 0; i < nr; i++)
+		printf("%c --> %i\n", *(k + i), *(r + i));
+	return 0;
+	/*2019*/
+
+}

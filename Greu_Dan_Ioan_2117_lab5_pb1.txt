@@ -1,0 +1,30 @@
+/*1. Realizaţi o aplicaţie care citeşte de la intrarea standard două valori pentru rezistențele R1 şi R2. Să se calculeze prin intermediul a două funcții rezistența echivalentă în serie și în paralel. Rezultatele se vor aﬁșa cu 3 zecimale și aliniere la dreapta*/
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+float serie(float, float);
+float paralel(float, float);
+int main()
+{
+	float r1, r2;
+	printf("introduceti valorile pt rezistente:");
+	scanf("%f%f", &r1, &r2);
+	if (r1 < 0)r1 = -r1;
+	if (r2 < 0)r2 = -r2;
+	printf("rezistenta in serie este: %10.3f\n", serie(r1, r2));
+        if(r1==r2 && r1==0) printf("Nu se poate calcula rezistenta paralela");
+	else printf("rezistenta in paralel este: %10.3f\n", paralel(r1, r2));
+        return 0;
+}
+float serie(float r1, float r2)
+{
+	float rt;
+	rt = r1 + r2;
+	return rt;
+}
+float paralel(float r1, float r2)
+{
+	float rt;
+	rt = (r1 * r2) / r1 + r2;
+	return rt;
+}

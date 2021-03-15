@@ -1,0 +1,32 @@
+/*9. Scrieţi un program în care se citesc n şiruri de caractere şi se concatenează într-un alt şir, alocat dinamic.
+Repetaţi operaţia de câte ori doreşte utilizatorul.
+După ﬁecare aﬁşare a şirului obţinut prin concatenare eliberaţi memoria alocată dinamic. */
+/*GREU DAN IOAN*/
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void rad(int*, float*,int);
+int main()
+{
+	char s[100], * str[100],*p,ok[2];
+	int n,m=0;
+	do {
+		printf("introduceti numarul de siruri:\n");
+		scanf("%i", &n);
+		printf("introduceti sirurile\n");
+		p = (char*)malloc(n*sizeof(char));
+		gets_s(s);
+		strcpy(p, s);
+		for (int i = 0; i < n; i++)
+		{
+			gets_s(s);
+			strcat(p, s);
+		}
+		printf("%s", p);
+		free(p);
+		printf("Repeta ?(da/nu)\n");
+		scanf("%s", ok);
+	} while (ok[0] != 'n'|| ok[0]!='N');
+	/*2019*/
+}
